@@ -1,0 +1,332 @@
+/*
+ * Pentalobe Device Repair — design tokens (Eyepiece).
+ * The ONLY file with raw colours, fonts, sizes and spacing.
+ *
+ * The idea: the view through the eyepiece. A repair bench is about looking closely — a stereo
+ * microscope over a teal anti-static mat, a reticle in the lens, small screws laid out in order. The
+ * page is a clean, cool BENCH WHITE with a deeper BENCH GREY panel, and one EYEPIECE black band (the
+ * dark ring around a microscope view): "What's going on with it?", the footer, the booking sheet's
+ * header. One accent, owner-editable — ANTI-STATIC PINK (the pink of an ESD bag) — is a BRIGHT colour
+ * that carries INK text: every main button, the reticle marks, the chosen answer and the chosen time,
+ * the lifted part of the exploded drawing. It is never text on the light page (too faint); on the
+ * eyepiece band it is also the emphasised words.
+ *
+ * Type: Archivo (variable width) set wide and firm for headings, at normal width for reading text and
+ * every figure; Martian Mono for the small labels (callout numbers, kinds, captions).
+ *
+ * Token names are shared with the other Niche Pack starters (so booking.css reads the same
+ * everywhere); the comments say what each one is here.
+ */
+:root {
+  /* ── Colour ─────────────────────────────────────────────── */
+  --paper: #eff1ef;          /* bench white — the reading pages */
+  --paper-2: #e1e5e3;        /* bench grey: quiet panels (fees, questions) */
+  --raised: #fbfcfb;         /* inputs, the booking sheet, cards */
+  --oat: #e7eae8;            /* the booking summary */
+  --oat-deep: #d3d8d6;       /* frames while loading, skeletons */
+  --sage-100: #e9ecea;       /* quiet highlights */
+  --sage-200: #ffe1ec;       /* tags, done steps (a pink wash) */
+  --rule: #c9cfcc;           /* hairlines (decorative) */
+  --line-input: #5f676b;     /* input and icon-button borders (≥ 3:1 on bench white and white) */
+  --line-soft: #9ea6a9;      /* borders of choice buttons named by their own text */
+  --mark: #1b7a55;           /* the "open" dot (≥ 3:1) */
+  --ink: #101416;            /* 17:1 on bench white */
+  --ink-soft: #2a3034;       /* reading text — 12.7:1 */
+  --muted: #535b60;          /* secondary text — 6.4:1 on bench white, 5.6:1 on bench grey */
+  --clay: #b3261e;           /* errors only (with words, never colour alone) */
+  --honey-wash: #eff1ef;
+  --scrim: rgb(16 20 22 / 0.1);
+  --veil: rgb(8 10 11 / 0.64); /* the page behind the booking sheet */
+  --clay-wash: color-mix(in oklab, var(--clay) 6%, var(--raised));
+  --mark-halo: color-mix(in oklab, var(--mark) 22%, transparent);
+
+  /* Emphasised words on the light page: ink, light italic (the accent is too faint as text there). */
+  --grass: var(--ink);
+
+  /* Eyepiece: the deep band (fixed) — "What's going on with it?", the footer, the sheet's header. */
+  --spruce: #0b0d0e;
+  --spruce-2: #15191b;
+  --spruce-3: #22282b;
+  --on-spruce: #eef1ef;      /* 18:1 */
+  --on-spruce-soft: #c2c9cc; /* 12:1 */
+  --on-spruce-faint: #959ea3; /* 7:1 */
+  --spruce-line: rgb(238 241 239 / 0.14);
+  --chalk-line: rgb(238 241 239 / 0.46); /* drawing lines on the eyepiece band (decorative) */
+  /* The exploded drawing's line on the light page. */
+  --draw-line: #2a3034;
+  --draw-fill: #fbfcfb;
+  --draw-fill-dark: #15191b;
+
+  /* Kept for the shared booking styles. */
+  --skin: var(--paper-2);
+  --skin-2: var(--oat-deep);
+  --on-skin: var(--ink);
+  --on-skin-soft: var(--muted);
+  --skin-line: rgb(21 25 28 / 0.14);
+  --birch: var(--paper-2);
+  --birch-deep: var(--oat-deep);
+  --on-birch: var(--ink);
+  --on-birch-soft: var(--muted);
+  --lime: var(--paper-2);
+  --night: var(--spruce);
+  --night-2: var(--spruce-2);
+  --on-night: var(--on-spruce);
+  --on-night-soft: var(--on-spruce-soft);
+  --on-night-faint: var(--on-spruce-faint);
+  --night-line: var(--spruce-line);
+  --field: var(--spruce);
+  --on-field: var(--on-spruce);
+  --tracing: rgb(239 241 239 / 0.88);
+  --tracing-solid: #eff1ef;
+  --tracing-edge: rgb(21 25 28 / 0.08);
+  --tracing-blur: 12px;
+
+  /* The booking sheet's header and the shared dark pieces: asphalt (booking.css reads "forest"). */
+  --forest: var(--spruce);
+  --forest-2: var(--spruce-2);
+  --forest-3: var(--spruce-3);
+  --on-forest: var(--on-spruce);
+  --on-forest-soft: var(--on-spruce-soft);
+  --on-forest-faint: var(--on-spruce-faint);
+  --forest-line: rgb(241 240 236 / 0.22);
+  --forest-line-strong: rgb(241 240 236 / 0.55);
+  --light: #ffffff;
+
+  /* Owner-editable (brand.accent) — set on <html> at run time: anti-static pink.
+     A BRIGHT colour that carries INK text (the editor checks any new colour at 4.5:1 against ink):
+     main buttons, reticle marks, the chosen answer, the lifted part, selected times and days. Never
+     text on the light page; emphasised words on the eyepiece band. */
+  --accent: #ff5f9e;         /* anti-static pink — ink on it 6.5:1; as text on eyepiece black 6.8:1 */
+  --accent-strong: color-mix(in oklab, var(--accent) 88%, #000);
+  --accent-deep: color-mix(in oklab, var(--accent) 55%, #000);
+  --accent-tint: color-mix(in oklab, var(--accent) 16%, var(--raised));
+  --accent-wash: color-mix(in oklab, var(--accent) 8%, var(--raised));
+  --on-accent: var(--ink);
+  --on-accent-soft: rgb(16 20 22 / 0.8);
+  --accent-text: var(--ink);         /* links on the light page: ink, underlined */
+  --accent-edge: var(--ink);
+  --accent-line: var(--accent);
+  --focus: var(--ink);
+  --accent-glow: var(--accent);
+  --keyline: rgb(16 20 22 / 0.9);
+
+  /* Buttons: pink with ink text; ink with white text on hover. */
+  --button: var(--accent);
+  --button-hover: var(--ink);
+  --on-button: var(--ink);
+  --on-button-hover: #ffffff;
+
+  /* Kept for the shared booking styles (the scaffold's ornament tokens). */
+  --sight-color: var(--ink);
+  --sight-w: 2.75rem;
+  --sight-tick: 0.5625rem;
+  --sight-rule: 1px;
+  --staff-height: 2px;
+  --staff: linear-gradient(90deg, var(--accent) 0 100%);
+  --staff-on-dark: var(--staff);
+  --ticks-on-dark: var(--staff);
+  --tick-tall: var(--staff-height);
+  --marker-bar: 0.375rem;
+
+  /* ── Type ───────────────────────────────────────────────── */
+  --font-display: 'Archivo Variable', 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-text: 'Archivo Variable', 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-sans-display: var(--font-text);
+  /* The page's small labels: Martian Mono. The booking sheet's figures (times, codes, prices) read
+     --font-mono and get the text face, set with tabular figures. */
+  --font-label: 'Martian Mono Variable', 'Martian Mono', ui-monospace, Menlo, monospace;
+  --font-mono: var(--font-text);
+
+  --text-micro: 0.75rem;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-md: clamp(1rem, 0.97rem + 0.14vw, 1.0938rem);
+  --text-lg: clamp(1.0938rem, 1rem + 0.4vw, 1.375rem);
+  --text-xl: clamp(1.375rem, 1.2rem + 0.8vw, 1.875rem);
+  --text-2xl: clamp(1.875rem, 1.4rem + 2vw, 3.25rem);
+  --text-3xl: clamp(2.375rem, 1.5rem + 3.6vw, 5.25rem);   /* section titles */
+  /* The first screen: by width AND by height, so two lines always leave room for the action. */
+  --text-hero: clamp(2.5rem, min(5.6vw, 9.6svh), 7.5rem);
+  --text-mega: clamp(3.5rem, 15vw, 20rem);                 /* the name in the footer */
+  --text-numeral: clamp(2.5rem, 2rem + 2vw, 3.75rem);
+  --text-code: clamp(2rem, 1.7rem + 1.2vw, 2.5rem);
+  --text-step: clamp(1.75rem, 1.5rem + 1vw, 2.375rem);
+  --text-sheet: clamp(1.5rem, 1.35rem + 0.6vw, 1.875rem);
+  --text-service: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+  --text-figure: clamp(1.75rem, 1.5rem + 1vw, 2.5rem);
+  --text-price: clamp(1.375rem, 1.25rem + 0.6vw, 1.75rem);
+  --text-fact: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  --text-wordmark: 1.125rem;
+  --text-card: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  --text-label: 0.75rem;
+
+  --leading-display: 0.92;
+  --leading-heading: 0.98;
+  --leading-body: 1.6;
+  --leading-tight: 1.2;
+
+  --tracking-display: -0.035em;
+  --tracking-eyebrow: 0.04em;
+  --tracking-button: 0.005em;
+  --tracking-code: 0.42em;
+  --tracking-tag: 0.04em;
+  --tracking-wordmark: -0.01em;
+  --tracking-mono: 0.01em;
+  --tracking-label: 0.04em;
+
+  --weight-text: 400;
+  --weight-strong: 700;
+  --weight-medium: 560;
+  --weight-display: 640;     /* Archivo, set wide: firm, technical */
+  --weight-light: 280;       /* the emphasised words: light italic */
+  --weight-sans-display: 600;
+  --weight-squeeze: 500;
+  --weight-load-from: 500;
+  --weight-mark: 700;        /* the wordmark */
+
+  --stretch-display: 118%;   /* Archivo's width axis: headings set wide */
+  --stretch-squeeze: 100%;
+  --stretch-start: 100%;
+  --stretch-label: 100%;
+  --stretch-text: 100%;
+
+  --heading-font: var(--font-display);
+  --heading-weight: var(--weight-display);
+  --heading-stretch: 118%;
+  --heading-tracking: -0.035em;
+  --heading-light-weight: 280;
+
+  --measure: 62ch;
+  --measure-lede: 42ch;
+  --measure-title: 16ch;
+
+  /* The line: its weight on the page, in drawings, and how fast it is drawn. */
+  --line-w: 1.5px;
+  --line-w-fine: 1.15px;
+  --line-w-bold: 2px;
+
+  /* ── Space ──────────────────────────────────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8.5rem;
+
+  --gutter: clamp(1rem, 4vw, 3.5rem);
+  /* Vertical rhythm: three section paddings and one heading gap. */
+  --section-pad: clamp(4.5rem, 2rem + 5vw, 8.5rem);
+  --section-pad-feature: clamp(4rem, 2rem + 4.4vw, 7.5rem);
+  --section-pad-compact: clamp(3.5rem, 1.75rem + 3.4vw, 6rem);
+  --head-gap: clamp(2.25rem, 1.25rem + 2.8vw, 4.5rem);
+  --desk-pad: clamp(var(--space-5), 4vw, var(--space-8));
+  /* One centred shell for every section, header and band: words and photographs never drift to the
+     screen's edges on wide monitors — only the rails run edge to edge. */
+  --page-max: 104rem;
+  --header-height: 4.25rem;
+  --header-bar: 4.25rem;
+  --sheet-width: 60rem;
+
+  /* ── Sizes ──────────────────────────────────────────────── */
+  --tap: 2.75rem;
+  --control: 3.25rem;
+  --input: 3rem;
+  --chip: 2.75rem;
+  --day-cell: 2.75rem;
+  --day-card-w: 4rem;
+  --day-card-h: 5.25rem;
+  --dot: 0.3125rem;
+  --drop: 0.75rem;
+  --edge: 3px;
+  --hairline: 1px;
+  --rule-strong: 2px;
+  --focus-width: 2px;
+  --focus-offset: 3px;
+  --logo-height: 1.875rem;
+  --logo-max: 11rem;
+  --summary-width: 17rem;
+  --time-min: 6rem;
+  --label-col: 7rem;
+  --form-max: 34rem;
+  --code-width: 15rem;
+  --code-height: 4rem;
+  --sticky-offset: 6rem;
+  --status-dot: 0.5rem;
+  --skeleton-block: 20rem;
+  --skeleton-times: 9rem;
+
+  --label-col-wide: clamp(7.5rem, 3rem + 7vw, 13rem);
+  --reticle: 2.25rem;        /* a section label's reticle */
+  --eyepiece-ring: 0.5rem;   /* the dark ring around an eyepiece photo */
+
+  /* ── Shape ──────────────────────────────────────────────── */
+  /* Photographs as eyepiece circles or softly rounded prints; buttons as rounded pills, like a bench tool's grip. */
+  --radius-0: 0;
+  --radius-1: 1px;
+  --radius-2: 2px;
+  --radius-card: 1rem;
+  --radius-photo: 1.25rem;
+  --radius-photo-soft: 0.5rem;
+  --radius-sign: 1rem;
+  --radius-button: 999px;
+  --radius-nail: 50%;
+  --radius-pill: 999px;
+  --shadow-soft: 0 -0.5rem 1.5rem var(--scrim);
+  --shadow-top: 0 0.5rem 1.5rem var(--scrim);
+  --shadow-print: 0 1.75rem 3rem -1.75rem rgb(20 20 20 / 0.35);
+  --shadow-sheet-paper: 0 1.25rem 2.5rem -1.25rem rgb(20 20 20 / 0.28), 0 0 0 1px var(--tracing-edge);
+  --shadow-sheet: -1.5rem 0 4rem rgb(18 18 18 / 0.25);
+  --shadow-option: 0 0.75rem 1.5rem -0.75rem rgb(20 20 20 / 0.3);
+
+  /* ── Motion ─────────────────────────────────────────────── */
+  --dur-quick: 180ms;
+  --dur-step: 320ms;
+  --dur-enter: 900ms;
+  --dur-photo: 1100ms;
+  --dur-glide: 1400ms;
+  --dur-load: 900ms;         /* the line pulled under a heading's words */
+  --dur-draw: 2600ms;        /* a continuous line drawn from start to end */
+  --dur-sheet: 420ms;
+  --stagger: 90ms;
+  --dur-shimmer: 1600ms;
+  --dur-spin: 900ms;
+  --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  /* Focusing: quick, then settling into sharpness. */
+  --ease-spring: cubic-bezier(0.25, 1, 0.4, 1);
+  --ease-stretch: var(--ease-spring);
+  --glide-from: -6%;
+  --rise: 1.25rem;
+  --slide: -1.75rem;
+  --settle-scale: 1.03;
+  --hover-scale: 1.02;
+
+  /* ── Layers ─────────────────────────────────────────────── */
+  --layer-sticky: 5;
+  --layer-banner: 10;
+  --layer-header: 8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-quick: 1ms;
+    --dur-step: 1ms;
+    --dur-enter: 1ms;
+    --dur-photo: 1ms;
+    --dur-glide: 1ms;
+    --dur-load: 1ms;
+    --dur-draw: 1ms;
+    --dur-sheet: 1ms;
+    --stagger: 0ms;
+    --rise: 0px;
+    --slide: 0px;
+    --glide-from: 0%;
+    --settle-scale: 1;
+    --hover-scale: 1;
+    --weight-load-from: var(--weight-squeeze);
+  }
+}

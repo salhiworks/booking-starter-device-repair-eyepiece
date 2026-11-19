@@ -1,0 +1,8 @@
+/*
+ * The packaged dashboard keeps its own design. The site brands it with one
+ * thing — its accent, per appearance (INTEGRATION.md §10). Eyepiece's accent is
+ * a bright anti-static pink carrying ink text, in both modes. Owner monogram,
+ * primary buttons, Confirm, focus rings, selection and the schedule's "now" line follow it.
+ */
+:root .pbe-admin[data-mode='light'] { --pbe-accent: #ff5f9e; --pbe-accent-text: #101416; } /* ink on pink ≈6.5:1 */
+:root .pbe-admin[data-mode='dark']  { --pbe-accent: #ff6fa8; --pbe-accent-text: #101416; } /* ink on pink ≈7:1 */
