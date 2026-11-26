@@ -32,7 +32,7 @@ set wide for headings with emphasised words in a light italic, Archivo for text 
 Mono for small labels; one ornament, the reticle.
 
 Booking runs on [`@profitstudio/booking-engine`](https://www.npmjs.com/package/@profitstudio/booking-engine)
-**2.0.0-beta.4** (pinned) with your own Supabase project and Resend for email.
+**2.0.0** (pinned) with your own Supabase project and Resend for email.
 
 ## 1. Try it (no accounts needed)
 
@@ -72,7 +72,7 @@ in `CLAUDE.md`). The booking form never asks for a passcode.
 You need a free Supabase project and a Resend account for booking emails.
 
 ```bash
-cp .env.example .env.local    # your Supabase Project URL + Publishable key
+cp .env.example .env.local    # your Supabase Project URL + Publishable key (Windows Command Prompt: copy .env.example .env.local)
 npx supabase@2 login          # once, in your own terminal
 npx booking-engine connect --admin you@example.com
 ```
