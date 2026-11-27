@@ -32,7 +32,7 @@ set wide for headings with emphasised words in a light italic, Archivo for text 
 Mono for small labels; one ornament, the reticle.
 
 Booking runs on [`@profitstudio/booking-engine`](https://www.npmjs.com/package/@profitstudio/booking-engine)
-**2.0.0** (pinned) with your own Supabase project and Resend for email.
+**2.0.1** (pinned) with your own Supabase project and Resend for email.
 
 ## 1. Try it (no accounts needed)
 
